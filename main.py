@@ -1,90 +1,97 @@
-class Book:
-    def __init__(self, title, authors, year) -> None:
-        self.title = title
-        self.authors = authors
-        self.year = year
+import turtle as t
+import random as r
+from turtle_config import *
 
-    def __str__(self) -> str:
-        return f'Назва: {self.title}\nАвтори: {", ".join(self.authors)}\nРік: {self.year}'
+# Налаштування черепашки
+t.shape(SHAPE)
+t.pensize(PEN_SIZE)
+t.color(COLOR)
+t.fillcolor(FILL_COLOR)
+t.speed(SPEED)
+
+print_config()
 
 
-class Library:
-    def __init__(self, name, address) -> None:
-        self.name = name
-        self.address = address
-        self.books = []
+# Завдання 1
 
-    def __str__(self) -> str:
-        return f'Бібліотека: {self.name}\nАдреса: {self.address}\nКількість книг: {len(self.books)}'
+t.penup()
+t.goto(-250, 0)
+t.pendown()
 
-    def show_books(self):
-        if len(self.books) == 0:
-            print('У бібліотеці немає книг.')
-        else:
-            print('\n=== Список книг ===')
-            for book in self.books:
-                print(book)
-                print('----------------')
+t.color("red")
 
-    def add_book(self, book):
-        self.books.append(book)
-        print(f'Книгу "{book.title}" додано.')
+for i in range(4):
+    t.forward(80)
+    t.right(90)
 
-    def remove_book(self, title):
-        for book in self.books:
-            if book.title.lower() == title.lower():
-                self.books.remove(book)
-                print(f'Книгу "{title}" видалено.')
-                return
-        print('Книгу не знайдено.')
+t.penup()
+t.goto(0, 0)
+t.pendown()
 
-    def find_by_title(self, title):
-        found = False
+t.color("green")
 
-        for book in self.books:
-            if title.lower() in book.title.lower():
-                print(book)
-                print('----------------')
-                found = True
+for i in range(3):
+    t.forward(80)
+    t.left(120)
 
-        if not found:
-            print('Книгу не знайдено.')
+t.penup()
+t.goto(250, 0)
+t.pendown()
 
-    def find_by_author(self, author):
-        found = False
+t.color("blue")
 
-        for book in self.books:
-            for a in book.authors:
-                if author.lower() in a.lower():
-                    print(book)
-                    print('----------------')
-                    found = True
+for i in range(5):
+    t.forward(80)
+    t.right(72)
 
-        if not found:
-            print('Автора не знайдено.')
+# Завдання 2
 
-library = Library('Центральна бібліотека', 'вул. Шевченка 10')
+t.penup()
+t.goto(-100, -200)
+t.pendown()
 
-book1 = Book('Кобзар', ['Тарас Шевченко'], 1840)
-book2 = Book('Майстер і Маргарита', ['Михайло Булгаков'], 1967)
-book3 = Book('Гаррі Поттер', ['Джоан Роулінг'], 1997)
+t.color("black")
+t.fillcolor("yellow")
 
-library.add_book(book1)
-library.add_book(book2)
-library.add_book(book3)
+t.begin_fill()
 
-print('\n=== Інформація про бібліотеку ===')
-print(library)
+for i in range(4):
+    t.forward(150)
+    t.left(90)
 
-library.show_books()
+t.end_fill()
 
-print('\n=== Пошук за назвою ===')
-library.find_by_title('гаррі')
+t.penup()
+t.goto(-100, -50)
+t.pendown()
 
-print('\n=== Пошук за автором ===')
-library.find_by_author('Шевченко')
+t.color("black")
+t.fillcolor("red")
 
-print('\n=== Видалення книги ===')
-library.remove_book('Кобзар')
+t.begin_fill()
 
-library.show_books()
+for i in range(3):
+    t.forward(150)
+    t.left(120)
+
+t.end_fill()
+
+# Завдання 3
+
+t.penup()
+t.goto(250, -150)
+t.pendown()
+
+t.speed(0)
+
+for i in range(36):
+
+    t.color(r.random(), r.random(), r.random())
+
+    for j in range(4):
+        t.forward(80)
+        t.right(90)
+
+    t.right(10)
+
+t.done()
